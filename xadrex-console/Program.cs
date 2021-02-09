@@ -12,7 +12,15 @@ namespace xadrex_console
             {
 
                 PartidaDeXadrez partida = new PartidaDeXadrez();
-                Tela.imprimindoTabuleiro(partida.tab);
+
+                while (!partida.terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimindoTabuleiro(partida.tab);
+
+                    Posicao origem = Tela.lerPosicaoXadrez();
+                }
+                
 
             }
             catch (TabuleitoException e)

@@ -8,12 +8,14 @@ namespace xadrez
         public Tabuleiro tab { get; private set; }
         private int turno;
         private Cor jogadorAtual;
+        public bool terminada { get; private set; }
 
         public PartidaDeXadrez()
         {
             this.tab = new Tabuleiro(8,8);
             this.turno = 1;
             this.jogadorAtual = Cor.Branco;
+            terminada = false;
             colocarPecas();
         }
         public void executaMovimento(Posicao origem, Posicao destino)
