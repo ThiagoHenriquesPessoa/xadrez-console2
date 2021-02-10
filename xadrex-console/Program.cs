@@ -18,11 +18,7 @@ namespace xadrex_console
                     try
                     {
                         Console.Clear();
-                        Tela.imprimindoTabuleiro(partida.tab);
-                        Console.WriteLine();
-
-                        Console.WriteLine("Turno: " + partida.turno);
-                        Console.WriteLine("Aguardando jogador atual: " + partida.jogadorAtual);
+                        Tela.imprimirPartida(partida);
                         Console.WriteLine();
 
                         Console.Write("Origem: ");
