@@ -17,8 +17,14 @@ namespace xadrex_console
                 {
                     Console.Clear();
                     Tela.imprimindoTabuleiro(partida.tab);
+                    Console.WriteLine();
 
-                    Posicao origem = Tela.lerPosicaoXadrez();
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    partida.executaMovimento(origem, destino);
                 }
                 
 

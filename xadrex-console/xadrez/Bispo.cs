@@ -9,7 +9,7 @@ namespace xadrez
         }
         public override string ToString()
         {
-            return "P";
+            return "B";
         }
     }
 }
