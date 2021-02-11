@@ -105,6 +105,8 @@ namespace xadrez
             return aux;
         }
 
+        
+
         public void colocarNovaPeca(char coluna, int linha, Peca peca)
         {
             tab.colocarPeca(peca, new PosicaoXadrez(coluna, linha).toPosicao());
