@@ -23,7 +23,10 @@ namespace xadrex_console
             Console.Write("Brancas: ");
             imprimirconjunto(partida.pecasCapturadas(Cor.Branco));
             Console.Write("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             imprimirconjunto(partida.pecasCapturadas(Cor.Preto));
+            Console.ForegroundColor = aux;
             Console.WriteLine();
         }
 
