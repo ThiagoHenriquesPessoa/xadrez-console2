@@ -11,10 +11,16 @@ namespace xadrex_console
         {
             imprimindoTabuleiro(partida.tab);
             Console.WriteLine();
-            imprimirPecasCapturadas(partida);
 
+            imprimirPecasCapturadas(partida);
             Console.WriteLine("Turno: " + partida.turno);
             Console.WriteLine("Aguardando jogador atual: " + partida.jogadorAtual);
+            Console.WriteLine();
+
+            if (partida.xeque)
+            {
+                Console.WriteLine("XEQUE!");
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
