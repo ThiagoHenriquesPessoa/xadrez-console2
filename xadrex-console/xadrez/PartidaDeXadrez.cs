@@ -28,7 +28,7 @@ namespace xadrez
         public Peca executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.retirarPeca(origem);
-            p.incrementarQteMovimento();            
+            p.incrementarQteMovimento();
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
             if (pecaCapturada != null)
@@ -59,7 +59,7 @@ namespace xadrez
 
             if (estaEmXeque(adversaria(jogadorAtual)))
             {
-                terminada = true;             
+                terminada = true;
             }
             else
             {
@@ -98,7 +98,7 @@ namespace xadrez
 
         public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
         {
-            if (!tab.peca(origem).podeMoverPara(destino))
+            if (!tab.peca(origem).movimentoPossivel(destino))
             {
                 throw new TabuleitoException("Posição de destino invalida!");
             }
@@ -219,14 +219,14 @@ namespace xadrez
         private void colocarPecas()
         {
             //-----------------------------------Peças brancas----------------------------------------------------
-            /*  colocarNovaPeca('a', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('b', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('c', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('d', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('e', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('f', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('g', 2, new Peao(tab, Cor.Branco));
-              colocarNovaPeca('h', 2, new Peao(tab, Cor.Branco));*/
+            colocarNovaPeca('a', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('b', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('c', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('d', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('e', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('f', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('g', 2, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('h', 2, new Peao(tab, Cor.Branco));
 
             colocarNovaPeca('a', 1, new Torre(tab, Cor.Branco));
             colocarNovaPeca('h', 1, new Torre(tab, Cor.Branco));
@@ -242,14 +242,14 @@ namespace xadrez
             colocarNovaPeca('f', 1, new Bispo(tab, Cor.Branco));
 
             //------------------------------------peças pretas-------------------------------------------------
-            /* colocarNovaPeca('a', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('b', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('c', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('d', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('e', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('f', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('g', 7, new Peao(tab, Cor.Preto));
-             colocarNovaPeca('h', 7, new Peao(tab, Cor.Preto));*/
+            colocarNovaPeca('a', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('b', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('c', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('d', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('e', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('f', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('g', 7, new Peao(tab, Cor.Preto));
+            colocarNovaPeca('h', 7, new Peao(tab, Cor.Preto));
 
             colocarNovaPeca('a', 8, new Torre(tab, Cor.Preto));
             colocarNovaPeca('h', 8, new Torre(tab, Cor.Preto));
