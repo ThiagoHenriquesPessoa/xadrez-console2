@@ -28,8 +28,7 @@ namespace xadrez
         public Peca executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.retirarPeca(origem);
-            p.incrementarQteMovimento();
-            tab.retirarPeca(destino);
+            p.incrementarQteMovimento();            
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
             if (pecaCapturada != null)
@@ -58,8 +57,16 @@ namespace xadrez
                 xeque = false;
             }
 
-            turno++;
-            mudaJogador();
+            if (estaEmXeque(adversaria(jogadorAtual)))
+            {
+                terminada = true;
+                Console.WriteLine("XEQUEMATE!");
+            }
+            else
+            {
+                turno++;
+                mudaJogador();
+            }
         }
 
         public void desfazMovimento(Posicao origem, Posicao destino, Peca pecaCapturada)
@@ -160,6 +167,10 @@ namespace xadrez
         public bool estaEmXeque(Cor cor)
         {
             Peca R = rei(cor);
+            if (R == null)
+            {
+                throw new TabuleitoException("Não tem rei da cor " + cor + " no tabuleiro!");
+            }
             foreach (Peca x in pecasEmJogo(adversaria(cor)))
             {
                 bool[,] mat = x.movimentosPossiveis();
@@ -196,8 +207,8 @@ namespace xadrez
                             }
                         }
                     }
-               }
-           }
+                }
+            }
             return true;
         }
         public void colocarNovaPeca(char coluna, int linha, Peca peca)
